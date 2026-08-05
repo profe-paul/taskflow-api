@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Infraestructura TaskFlow API- repositorio de imagenes ECR
+Resources:
+  TaskflowRepo:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: taskflow-api
+      ImageScanningConfiguration:
+        ScanOnPush: true
+
+Outputs:
+  RepositoryUri:
+    Value: !GetAtt TaskflowRepo.RepositoryUri
